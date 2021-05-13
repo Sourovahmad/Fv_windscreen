@@ -1,0 +1,175 @@
+
+
+#sign-in header {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.5)));
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5));
+  background-size: cover;
+  background-position: right bottom;
+  padding: 220px 0 80px 0;
+}
+
+#sign-in .sign-in-box {
+  width: 60%;
+  margin: auto;
+}
+
+#sign-in .sign-in {
+  width: 420px;
+  border-radius: 35px;
+  background: #fff;
+  padding: 30px 50px;
+  margin: auto;
+}
+
+
+
+#sign-in .first-page .sign-in-box .sign-in h4 {
+  font-size: 18px;
+}
+
+#sign-in .first-page .sign-in-box .sign-in p {
+  font-size: 12px;
+}
+
+#sign-in .first-page .sign-in-box .sign-in p a {
+  text-decoration: none;
+  color: #E35D86;
+}
+
+#sign-in .hr {
+  text-align: center;
+}
+
+#sign-in .btn-icon {
+  width: 25px;
+}
+
+#sign-in .sign-in .text-input input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+  margin-bottom: 25px;
+}
+
+#sign-in .sign-in .btn {
+  width: 150px;
+  display: block;
+  margin: auto;
+  border-radius: 25px;
+  background: #E35D86;
+}
+
+#sign-in .sign-in .btn a {
+  color: #fff;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 8px 10px;
+}
+
+#sign-in .btn-icon {
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 25px;
+  border: 1px solid black;
+}
+
+#sign-in .btn-icon {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#sign-in .btn-icon img {
+  width: 20px;
+}
+
+#sign-in .btn-icon a {
+  font-size: 12px;
+  text-decoration: none;
+  color: #000;
+}
+
+#sign-in .fb-btn {
+  background: #4267B2;
+  border: none;
+}
+
+#sign-in section {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.5))), url(Signup.png);
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(Signup.png);
+  background-size: cover;
+  background-position: left bottom;
+  padding: 220px 0 80px 0;
+}
+
+#sign-in .flex-input-box, #sign-in .radio-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#sign-in .radio-text input {
+  margin-top: 5px;
+  margin-right: 5px;
+  color: #E35D86;
+}
+
+#sign-in .flex-input-box input {
+  width: 45%;
+}
+
+#sign-in section.third-page {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.5))), url(otp.png);
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(otp.png);
+  background-size: cover;
+  background-position: right bottom;
+  padding: 220px 0 80px 0;
+}
+
+#sign-in .otp-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#sign-in .otp-inputs input {
+  width: 50px;
+  border: none;
+  background: #FFE7EA;
+  padding: 25px 0;
+  border-radius: 25px 25px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+#sign-in .box-footer {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#sign-in .box-footer a {
+  color: #000;
+  margin-top: 5px;
+  font-size: 18px;
+}
+/*# sourceMappingURL=LoginReleted.css.map */
+
+@media screen and (max-width: 1024px) {
+  #sign-in .sign-in-box{
+    width: 100%;
+  }
+  .sign-in{
+    width: 90%;
+  }
+  .text-input{
+    display: none;
+  }
+}

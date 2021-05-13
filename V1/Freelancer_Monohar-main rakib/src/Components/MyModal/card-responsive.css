@@ -1,0 +1,7 @@
+@media screen and (max-width: 1024px){
+    .mobile-mia{
+        width: 100% !important;
+        position: top fixed !important;
+        height: 100vh !important;
+    }
+}

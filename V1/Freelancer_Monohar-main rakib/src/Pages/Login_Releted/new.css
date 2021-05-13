@@ -1,0 +1,39 @@
+
+.mobile-img{
+    display: none;
+}
+
+
+
+
+@media screen  and (max-width: 1024px) {
+    header, .second-page{
+        background: #FFF3F5 !important;
+    }
+
+   .third-page{
+        background: #FFF3F5 !important;
+    }
+    .sign-in-box{
+        width: 100% !important;
+    }
+    .sign-in{
+        width: 90% !important;
+    }
+
+    .uppersignin{
+    display: none;
+
+    }
+ 
+    .mobile-img{
+            display: block;
+            width: 60%;
+            margin:auto;
+    }
+    .mobile-img img{
+        width: 100%;
+    }
+  
+       
+}
