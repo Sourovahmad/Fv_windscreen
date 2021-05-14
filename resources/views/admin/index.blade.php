@@ -1,3 +1,4 @@
+
 @extends('admin.includes.app')
 
 @section('content')
@@ -55,7 +56,13 @@
                             <th> #</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Size</th>
+                            <th>Color</th>
+                            <th>Material</th>
+                            <th>Position</th>
+                            <th>Logo</th>
                             <th>Action</th>
+
 
                         </tr>
                     </thead>
@@ -65,6 +72,11 @@
                             <th> #</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Size</th>
+                            <th>Color</th>
+                            <th>Material</th>
+                            <th>Position</th>
+                            <th>Logo</th>
                             <th>Action</th>
 
                         </tr>
@@ -73,7 +85,7 @@
 
                     <tbody>
                         <?php $itr = 0; ?>
-                        {{-- @foreach ($super_admins as $admin)
+                        {{-- @foreach ($super_admins as $admin) --}}
 
                     @php
                     $itr = $itr+1;
@@ -85,17 +97,45 @@
 
 
                         <td>{{ $itr }}</td>
-                        <td>{{ $admin->name }}</td>
-                        <td>{{ $admin->email }}</td>
+                        <td>name</td>
+                        <td>emial</td>
+                        <td>
+
+                            <table class="table">
+
+                                <tr>
+
+                                    <thead>
+                                        <th scope="col">Height</th>
+                                        <th scope="col">Width</th>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                        </tr>
+                                    </tbody>
+                                </tr>
+                            </table>
+
+
+
+                        </td>
+                        <td>red</td>
+                        <td>Material 2</td>
+                        <td>left</td>
+                        <td>logo</td>
+
 
 
                         <td class="align-middle">
                             <button title="Edit" type="button" class="dataEditItemClass btn btn-success btn-sm"
-                                id="data-edit-button" data-item-id={{ $admin->id }}> <i class="fa fa-edit" aria-hidden="false">
+                                id="data-edit-button" data-item-id=1> <i class="fa fa-edit" aria-hidden="false">
                                 </i></button>
 
 
-                            <form method="POST" action="{{ route('admin.super-admins-delete',$admin->id) }}" id="delete-form-{{ $admin->id }}" style="display:none; ">
+                            <form method="POST" action="{{ route('orders.destroy',1) }}" id="delete-form-1" style="display:none; ">
                                 {{csrf_field() }}
                                 {{ method_field("delete") }}
                             </form>
@@ -104,7 +144,7 @@
 
 
                             <button title="Delete" class="dataDeleteItemClass btn btn-danger btn-sm" onclick="if(confirm('are you sure to delete this')){
-				document.getElementById('delete-form-{{ $admin->id }}').submit();
+				document.getElementById('delete-form-1').submit();
 			}
 			else{
 				event.preventDefault();
@@ -118,12 +158,11 @@
 
 
 
-                        </td>
 
                     </tr>
 
 
-                    @endforeach --}}
+                    {{-- @endforeach --}}
 
                     </tbody>
 
