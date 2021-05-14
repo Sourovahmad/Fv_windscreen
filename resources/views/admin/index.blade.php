@@ -1,4 +1,3 @@
-
 @extends('admin.includes.app')
 
 @section('content')
@@ -60,6 +59,7 @@
                             <th>Color</th>
                             <th>Material</th>
                             <th>Position</th>
+                            <th>Price</th>
                             <th>Logo</th>
                             <th>Action</th>
 
@@ -76,6 +76,7 @@
                             <th>Color</th>
                             <th>Material</th>
                             <th>Position</th>
+                            <th>Price</th>
                             <th>Logo</th>
                             <th>Action</th>
 
@@ -87,82 +88,92 @@
                         <?php $itr = 0; ?>
                         {{-- @foreach ($super_admins as $admin) --}}
 
-                    @php
-                    $itr = $itr+1;
-                    @endphp
-                    <tr class="data-row">
+                        @php
+                            $itr = $itr + 1;
+                        @endphp
+                        <tr class="data-row">
 
 
 
 
 
-                        <td>{{ $itr }}</td>
-                        <td>name</td>
-                        <td>emial</td>
-                        <td>
+                            <td>{{ $itr }}</td>
+                            <td>name</td>
+                            <td>example@gamil.com</td>
+                            <td>
 
-                            <table class="table">
+                                <table class="table">
 
-                                <tr>
+                                    <tr>
 
-                                    <thead>
-                                        <th scope="col">Height</th>
-                                        <th scope="col">Width</th>
-                                    </thead>
+                                        <thead>
+                                            <th scope="col">Height</th>
+                                            <th scope="col">Width</th>
+                                        </thead>
 
-                                    <tbody>
-                                        <tr>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                        </tr>
-                                    </tbody>
-                                </tr>
-                            </table>
-
-
-
-                        </td>
-                        <td>red</td>
-                        <td>Material 2</td>
-                        <td>left</td>
-                        <td>logo</td>
+                                        <tbody>
+                                            <tr>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                            </tr>
+                                        </tbody>
+                                    </tr>
+                                </table>
 
 
 
-                        <td class="align-middle">
-                            <button title="Edit" type="button" class="dataEditItemClass btn btn-success btn-sm"
-                                id="data-edit-button" data-item-id=1> <i class="fa fa-edit" aria-hidden="false">
-                                </i></button>
+                            </td>
+                            <td>red</td>
+                            <td>Material 2</td>
+                            <td>left</td>
+                            <td>200 $</td>
+                            <td>
+                                <div class="text-center">
+                                    <img src="{{ asset('images/work.png') }}" alt="" style="max-width: 80%"> <br>
+
+                                    <span class="text-success"><i class="fas fa-download mt-2 "></i></span>
+
+                                </div>
+
+                            </td>
 
 
-                            <form method="POST" action="{{ route('orders.destroy',1) }}" id="delete-form-1" style="display:none; ">
-                                {{csrf_field() }}
-                                {{ method_field("delete") }}
-                            </form>
+
+                            <td class="align-middle">
+                                <button title="Edit" type="button" class="dataEditItemClass btn btn-success btn-sm"
+                                    id="data-edit-button" data-item-id=1> <i class="fa fa-edit" aria-hidden="false">
+                                    </i></button>
 
 
-
-
-                            <button title="Delete" class="dataDeleteItemClass btn btn-danger btn-sm" onclick="if(confirm('are you sure to delete this')){
-				document.getElementById('delete-form-1').submit();
-			}
-			else{
-				event.preventDefault();
-			}
-			" class="btn btn-danger btn-sm btn-raised">
-                                <i class="fa fa-trash" aria-hidden="false">
-
-                                </i>
-                            </button>
+                                <form method="POST" action="{{ route('orders.destroy', 1) }}" id="delete-form-1"
+                                    style="display:none; ">
+                                    {{ csrf_field() }}
+                                    {{ method_field('delete') }}
+                                </form>
 
 
 
 
+                                <button title="Delete" class="dataDeleteItemClass btn btn-danger btn-sm" onclick="if(confirm('are you sure to delete this')){
+        document.getElementById('delete-form-1').submit();
+       }
+       else{
+        event.preventDefault();
+       }
+       " class="btn btn-danger btn-sm btn-raised">
+                                    <i class="fa fa-trash" aria-hidden="false">
 
-                    </tr>
+                                    </i>
+                                </button>
 
 
-                    {{-- @endforeach --}}
+
+
+
+                        </tr>
+
+
+                        {{-- @endforeach --}}
 
                     </tbody>
 

@@ -2,8 +2,6 @@
 <ul class="navbar-nav    sidebar sidebar-dark accordion bg-techbot-dark " id="accordionSidebar">
 
 
-
-
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active ">
         <a class="nav-link p-3 " href="#">

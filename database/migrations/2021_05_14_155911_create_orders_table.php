@@ -15,6 +15,14 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->string('size_height'); //need little bit thinking about the size
+            $table->string('size_width');
+            $table->string('color');
+            $table->string('material');
+            $table->string('position');
+            $table->unsignedBigInteger('image_id');
             $table->timestamps();
         });
     }

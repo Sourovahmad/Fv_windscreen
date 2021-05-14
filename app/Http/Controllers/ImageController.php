@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\order;
+use App\Models\image;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class ImageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        //
     }
 
     /**
@@ -35,16 +35,16 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->image);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\image  $image
      * @return \Illuminate\Http\Response
      */
-    public function show(order $order)
+    public function show(image $image)
     {
         //
     }
@@ -52,10 +52,10 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\image  $image
      * @return \Illuminate\Http\Response
      */
-    public function edit(order $order)
+    public function edit(image $image)
     {
         //
     }
@@ -64,10 +64,10 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\image  $image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, order $order)
+    public function update(Request $request, image $image)
     {
         //
     }
@@ -75,11 +75,11 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(order $order,$id)
+    public function destroy(image $image)
     {
-        return $id;
+        //
     }
 }
