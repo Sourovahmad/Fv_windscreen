@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +20,13 @@ Route::get('/', function () {
 
 
 
+Route::middleware(['auth:sanctum'])->group(function () {
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    
-    return view('dashboard');
+    Route::resource('orders', OrderController::class);
 
-})->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+
+});
