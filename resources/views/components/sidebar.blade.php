@@ -16,9 +16,9 @@
     <hr class="sidebar-divider m-1 p-0 ">
 
     <li class="nav-item active ">
-        <a class="nav-link p-3 " href="#">
+        <a class="nav-link p-3 " href="{{ route('home') }}/user/profile">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Orders</span></a>
+            <span>Profile</span></a>
     </li>
 
 

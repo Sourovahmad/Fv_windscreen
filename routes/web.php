@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrderController;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,17 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('admin.index');
-});
+})->name('home');
 
 
 
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum'])->group( function () {
 
-    Route::resource('orders', OrderController::class);
+        Route::resource('orders', OrderController::class);
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
 
 
 });
