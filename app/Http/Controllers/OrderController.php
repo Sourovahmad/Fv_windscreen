@@ -49,14 +49,15 @@ class OrderController extends Controller
 
 
 
-     $height = 5;
-     return $order->CalculateTotalPrice($height);
+        $width= 6;
+        $height = 3;
+        return $order->CalculateTotalPrice($width,$height);
 
-    //   order::create($request->validated() + [
+        //   order::create($request->validated() + [
 
-    //     'image' => $fileName,
+        //     'image' => $fileName,
 
-    //   ]);
+        //   ]);
 
     }
 
@@ -87,8 +88,8 @@ class OrderController extends Controller
     public function download($id)
     {
         $orderImg = order::where('id', $id)->firstOrFail();
-        $path = public_path().'/'.$orderImg->image;
+        $path = public_path() . '/' . $orderImg->image;
         return response()->download($path, $orderImg
-                 ->original_filename, ['Content-Type' => $orderImg->mime]);
+            ->original_filename, ['Content-Type' => $orderImg->mime]);
     }
 }

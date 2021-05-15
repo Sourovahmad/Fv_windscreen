@@ -26,8 +26,9 @@ Route::middleware(['auth:sanctum'])->group( function () {
 
         Route::resource('orders', OrderController::class);
         Route::get('download_image/{id}', [OrderController::class, 'download'])->name('download_image');
-        Route::get('/dashboard', function () {
-            return view('dashboard');
+
+        Route::get('/admin', function () {
+            return view('admin.index');
         })->name('dashboard');
 
 
