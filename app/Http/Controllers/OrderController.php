@@ -38,14 +38,19 @@ class OrderController extends Controller
     {
         $order = new order;
 
-        $file = $request->file('image');
-        $fileName = time() . '.full.' . $file->getClientOriginalName();
-        $file->move('images/', $fileName);
-        $name = 'images/'.$fileName;
+        // $file = $request->file('image');
+        // $fileName = time() . '.full.' . $file->getClientOriginalName();
+        // $file->move('images/', $fileName);
+        // $name = 'images/'.$fileName;
 
-        $order->image = 'images/'.$fileName;
-        $order->save();
+        // $order->image = 'images/'.$fileName;
+        // $order->save();
+        // return redirect()->back()->withSuccess('Order Creted successfully');
 
+
+
+     $height = 5;
+     return $order->CalculateTotalPrice($height);
 
     //   order::create($request->validated() + [
 

@@ -16,4 +16,9 @@ class order extends Model
     ];
 
 
+ public function CalculateTotalPrice($height)
+    {
+           return $height+2;
+    }
+
 }
