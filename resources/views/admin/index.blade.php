@@ -131,7 +131,10 @@
                                 <div class="text-center">
                                     <img src="{{ asset('images/work.png') }}" alt="" style="max-width: 80%"> <br>
 
-                                    <span class="text-success"><i class="fas fa-download mt-2 "></i></span>
+                                        <a href="{{ route('download_image',2) }}">
+                                            <span class="text-success"><i class="fas fa-download mt-2 "></i></span>
+                                        </a>
+
 
                                 </div>
 

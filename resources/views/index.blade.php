@@ -8,12 +8,12 @@
 
 
 
-<form action="{{ route('orders.store') }}" method="post">
+<form action="{{ route('order-save') }}" method="post" enctype="multipart/form-data">
 
     @csrf
 
 
-    <input type="file" name="image" id="" >
+    <input type="file" name="image" id=""  >
 
     <button type="submit">submit</button>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\orderStoreRequest;
 use App\Models\order;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,25 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(orderStoreRequest $request)
     {
-        dd($request->image);
+        $order = new order;
+
+        $file = $request->file('image');
+        $fileName = time() . '.full.' . $file->getClientOriginalName();
+        $file->move('images/', $fileName);
+        $name = 'images/'.$fileName;
+
+        $order->image = 'images/'.$fileName;
+        $order->save();
+
+
+    //   order::create($request->validated() + [
+
+    //     'image' => $fileName,
+
+    //   ]);
+
     }
 
     /**
@@ -49,28 +66,6 @@ class OrderController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, order $order)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -78,8 +73,17 @@ class OrderController extends Controller
      * @param  \App\Models\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(order $order,$id)
+    public function destroy(order $order)
     {
-        return $id;
+        $order->delete();
+        return redirect()->back()->withErrors('Order Deleted');
+    }
+
+    public function download($id)
+    {
+        $orderImg = order::where('id', $id)->firstOrFail();
+        $path = public_path().'/'.$orderImg->image;
+        return response()->download($path, $orderImg
+                 ->original_filename, ['Content-Type' => $orderImg->mime]);
     }
 }
