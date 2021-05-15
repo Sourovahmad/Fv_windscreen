@@ -59,7 +59,7 @@
                             <th>Color</th>
                             <th>Material</th>
                             <th>Position</th>
-                            <th>Price</th>
+                            <th>Price (total) </th>
                             <th>Logo</th>
                             <th>Action</th>
 
@@ -76,7 +76,7 @@
                             <th>Color</th>
                             <th>Material</th>
                             <th>Position</th>
-                            <th>Price</th>
+                            <th>Price (total) </th>
                             <th>Logo</th>
                             <th>Action</th>
 
@@ -98,8 +98,8 @@
 
 
                             <td>{{ $itr }}</td>
-                            <td>name</td>
-                            <td>example@gamil.com</td>
+                            <td class="word-break name">name</td>
+                            <td class="word-break email">example@gamil.com</td>
                             <td>
 
                                 <table class="table">
@@ -113,8 +113,8 @@
 
                                         <tbody>
                                             <tr>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
+                                                <td class="word-break height">Mark</td>
+                                                <td class="word-break width">Otto</td>
                                             </tr>
                                         </tbody>
                                     </tr>
@@ -123,17 +123,17 @@
 
 
                             </td>
-                            <td>red</td>
-                            <td>Material 2</td>
-                            <td>left</td>
-                            <td>200 $</td>
+                            <td class="word-break color">Color</td>
+                            <td class="word-break material">Material 2</td>
+                            <td class="word-break position"> Position</td>
+                            <td class="word-break price">200 $</td>
                             <td>
                                 <div class="text-center">
                                     <img src="{{ asset('images/work.png') }}" alt="" style="max-width: 80%"> <br>
 
-                                        <a href="{{ route('download_image',2) }}">
-                                            <span class="text-success"><i class="fas fa-download mt-2 "></i></span>
-                                        </a>
+                                    <a href="{{ route('download_image', 2) }}">
+                                        <span class="text-success"><i class="fas fa-download mt-2 "></i></span>
+                                    </a>
 
 
                                 </div>
@@ -144,7 +144,7 @@
 
                             <td class="align-middle">
                                 <button title="Edit" type="button" class="dataEditItemClass btn btn-success btn-sm"
-                                    id="data-edit-button" data-item-id=1> <i class="fa fa-edit" aria-hidden="false">
+                                    id="data-edit-button" data-item-id=1> <i class="fa fa-eye" aria-hidden="false">
                                     </i></button>
 
 
@@ -158,12 +158,12 @@
 
 
                                 <button title="Delete" class="dataDeleteItemClass btn btn-danger btn-sm" onclick="if(confirm('are you sure to delete this')){
-        document.getElementById('delete-form-1').submit();
-       }
-       else{
-        event.preventDefault();
-       }
-       " class="btn btn-danger btn-sm btn-raised">
+                    document.getElementById('delete-form-1').submit();
+                   }
+                   else{
+                    event.preventDefault();
+                   }
+                   " class="btn btn-danger btn-sm btn-raised">
                                     <i class="fa fa-trash" aria-hidden="false">
 
                                     </i>
@@ -197,45 +197,113 @@
                 <div class="modal-header bg-techbot-dark">
                     <h5 class="modal-title " id="edit-modal-label ">
                         Edit Admin</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
+                    <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">X</span>
                     </button>
                 </div>
                 <div class="modal-body" id="attachment-body-content">
                     <form id="data-edit-form" class="form-horizontal" method="POST" action="">
                         @csrf
                         @method('put')
-                        <div class="form-group">
-                            <label class="col-form-label" for="modal-update-hidden-id">Id</label>
-                            <input type="text" name="id" class="form-control" id="modal-update-hidden-id" required readonly>
+
+                        <div class="container">
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="modal-update-hidden-id">Id</label>
+                                <input type="text" name="id" class="form-control" id="modal-update-hidden-id" required
+                                    readonly>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="modal-update-name">Name <span
+                                                style="color: red">*</span></label>
+                                        <input type="text" name="name" class="form-control" id="modal-update-name" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="modal-update-email">Email </label>
+                                        <input type="email" name="email" class="form-control" id="modal-update-email" readonly>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-form-label" for="modal-update-size">Size :</label>
+
+                                <table class="table">
+
+                                    <tr>
+
+                                        <thead class="text-center">
+                                            <th scope="col">Height</th>
+                                            <th scope="col">Width</th>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr class="text-center">
+                                                <td class="modal-output-height" id="modal-output-height">Mark</td>
+                                                <td class="modal-output-width" id="modal-output-width">Otto</td>
+                                            </tr>
+                                        </tbody>
+                                    </tr>
+                                </table>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="modal-update-color">Color </label>
+                                        <input type="text" name="color" class="form-control" id="modal-update-color" readonly>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="col-form-material" for="modal-update-material">Material </label>
+                                        <input type="text" name="material" class="form-control" id="modal-update-material" readonly>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="modal-update-position">Position </label>
+                                        <input type="text" name="position" class="form-control" id="modal-update-position" readonly>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="modal-update-price">Total  </label>
+                                        <input type="text" name="price" class="form-control" id="modal-update-price" readonly>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
                         </div>
-
-
-                        <div class="form-group">
-                            <label class="col-form-label" for="modal-update-name">Name <span
-                                    style="color: red">*</span></label>
-                            <input type="text" name="name" class="form-control" id="modal-update-name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-form-label" for="modal-update-email">Email </label>
-                            <input type="email" name="email" class="form-control" id="modal-update-email">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-form-label" for="modal-update-password">Password</label>
-                            <input type="text" name="password" class="form-control" id="modal-update-password">
-                        </div>
-
-
-
-                        <div class="form-group">
-
-                            <input type="submit" id="submit-button" value="Submit" class="form-control btn btn-success">
-                        </div>
-
-
-
 
                     </form>
                 </div>
@@ -276,14 +344,29 @@
             $('#data-edit-modal').on('show.bs.modal', function() {
 
                 var el = $(".edit-item-trigger-clicked");
+                var row = el.closest(".data-row");
 
                 // get the data
                 var itemId = el.data('item-id');
-
-
+                var name = row.children(".name").text();
+                var email = row.children(".email").text();
+                var height = row.children(".height").text();
+                var width = row.children(".width").text();
+                var color = row.children(".color").text();
+                var material = row.children(".material").text();
+                var position = row.children(".position").text();
+                var price = row.children(".price").text();
 
 
                 $("#modal-update-hidden-id").val(itemId);
+                $("#modal-update-name").val(name);
+                $("#modal-update-email").val(email);
+                $("#modal-update-height").val(height);
+                $("#modal-update-width").val(width);
+                $("#modal-update-color").val(color);
+                $("#modal-update-material").val(material);
+                $("#modal-update-position").val(position);
+                $("#modal-update-price").val(price);
 
 
             });
