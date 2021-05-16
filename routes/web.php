@@ -20,7 +20,7 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::post('order-save', [OrderController::class, 'store'])->name('order-save');
+Route::post('order-save', [OrderController::class, 'orderStore'])->name('order-save');
 
 Route::middleware(['auth:sanctum'])->group( function () {
 

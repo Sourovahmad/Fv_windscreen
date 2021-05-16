@@ -34,9 +34,10 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(orderStoreRequest $request)
+    public function store(Request $request)
     {
-        $order = new order;
+        return $request;
+        // $order = new order;
 
         // $file = $request->file('image');
         // $fileName = time() . '.full.' . $file->getClientOriginalName();
@@ -49,9 +50,9 @@ class OrderController extends Controller
 
 
 
-        $width= 6;
-        $height = 3;
-        return $order->CalculateTotalPrice($width,$height);
+        // $width= 6;
+        // $height = 3;
+        // return $order->CalculateTotalPrice($width,$height);
 
         //   order::create($request->validated() + [
 
@@ -91,5 +92,10 @@ class OrderController extends Controller
         $path = public_path() . '/' . $orderImg->image;
         return response()->download($path, $orderImg
             ->original_filename, ['Content-Type' => $orderImg->mime]);
+    }
+
+
+    public function orderStore(Request $request){
+        return $request;
     }
 }
