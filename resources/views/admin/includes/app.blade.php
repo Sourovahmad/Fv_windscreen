@@ -69,7 +69,7 @@
           <div id="content">
 
 
-              {{-- <x-navbar/> --}}
+               <x-navbar/> 
 
               <!-- Begin Page Content -->
               <div class="container-fluid pl-1 pl-md-2 ">
