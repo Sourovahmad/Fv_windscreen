@@ -126,6 +126,9 @@
                             <td class="word-break position"> {{ $order->position }}</td>
                             <td class="word-break price">{{ $order->price }}</td>
                             <td>
+
+                            @if(!empty($order->image))
+                        
                                 <div class="text-center">
                                     <img src="{{ asset($order->image) }}" alt="" style="max-width: 80%"> <br>
 
@@ -135,6 +138,8 @@
 
 
                                 </div>
+
+                                @endif
 
                             </td>
 
@@ -244,8 +249,9 @@
 
                                         <tbody>
                                             <tr class="text-center">
-                                                <td class="modal-output-height" id="modal-output-height">Mark</td>
-                                                <td class="modal-output-width" id="modal-output-width">Otto</td>
+                                                <td class="modal-update-height" id="modal-update-height"></td>
+                                                <td class="modal-update-width" id="modal-update-width"></td>
+                                                <td class="modal-update-size" id="modal-update-size"></td>
                                             </tr>
                                         </tbody>
                                     </tr>
@@ -315,7 +321,7 @@
     <script>
         $(document).ready(function() {
 
-
+            var orders = @json($orders);
             $('#dataTable').DataTable({
                 dom: 'lBfrtip',
                 buttons: [
@@ -346,25 +352,27 @@
 
                 // get the data
                 var itemId = el.data('item-id');
-                var name = row.children(".name").text();
-                var email = row.children(".email").text();
-                var height = row.children(".height").text();
-                var width = row.children(".width").text();
-                var color = row.children(".color").text();
-                var material = row.children(".material").text();
-                var position = row.children(".position").text();
-                var price = row.children(".price").text();
+
+                $.each(orders, function(key){
+                    if (orders[key].id == itemId){
+
+                        console.log(orders[key].size_width)
+                        $("#modal-update-hidden-id").val(itemId);
+                        $("#modal-update-name").val(orders[key].name);
+                        $("#modal-update-email").val(orders[key].email);
+                        $("#modal-update-height").text(orders[key].size_height);
+                        $("#modal-update-width").text(orders[key].size_width);
+                        $("#modal-update-size").text(orders[key].size);
+                        $("#modal-update-color").val(orders[key].color);
+                        $("#modal-update-material").val(orders[key].material);
+                        $("#modal-update-position").val(orders[key].position);
+                        $("#modal-update-price").val(orders[key].price);
 
 
-                $("#modal-update-hidden-id").val(itemId);
-                $("#modal-update-name").val(name);
-                $("#modal-update-email").val(email);
-                $("#modal-update-height").val(height);
-                $("#modal-update-width").val(width);
-                $("#modal-update-color").val(color);
-                $("#modal-update-material").val(material);
-                $("#modal-update-position").val(position);
-                $("#modal-update-price").val(price);
+                    }
+                });
+
+
 
 
             });

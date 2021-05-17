@@ -120,7 +120,7 @@ class OrderController extends Controller
             $order->image = $image_name;
         }
         $order->save();
-        return back()->withSuccess('Order Created');
+        return back()->withSuccess('We have Recived your Request . We will contract you soon');
 
     }
 }

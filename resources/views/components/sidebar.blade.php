@@ -20,10 +20,16 @@
     </li>
 
 
+
+
+     <!-- Divider -->
+     <hr class="sidebar-divider m-1 p-0 ">
+    <!-- Nav Item - Dashboard -->
+
     <!-- Sidebar Toggler (Sidebar) -->
-    {{-- <div class="text-center  d-none d-md-inline">
+    <div class="text-center  d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div> --}}
+    </div>
 
 
 

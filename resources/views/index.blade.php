@@ -394,7 +394,7 @@
                 if($('#widthInch').val() &&  $('#heightInch').val()){
                     area += $('#widthInch').val() * $('#heightInch').val() /144;
                 }
-                var cost = area * 1.5;
+                var cost = area * 4 / 6;
                 $('#totalMaterial').text(parseFloat(area).toFixed(2));
                 $('#totalCost').text('$ ' + parseFloat(cost).toFixed(2));
 
