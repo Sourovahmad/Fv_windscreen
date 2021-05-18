@@ -58,13 +58,13 @@
     <!-- customiaz section start from here -->
     <section>
         <div class="col-lg-10 mx-auto col-10 d-none d-md-block">
-            <div class="title">
+            <div class="title text-center p-3">
                 <h3 class="mb-0">Customize, and Order Your Windscreen</h3>
                 <hr class="cs-hr" />
             </div>
-            <div class="img-preview text-center">
+            {{-- <div class="img-preview text-center">
                 <img src="https://cdn.shopify.com/s/files/1/1565/4441/t/2/assets/default-gray-space-holder-windscreen-designer.png.png?v=11040843856678931694" alt="" class="img-fluid" />
-            </div>
+            </div> --}}
         </div>
     </section>
 
@@ -132,11 +132,11 @@
                             <div class="color-box colorPciker"  dataColor='maroon' style="background-color: maroon;"></div>
                             <div class="color-box colorPciker"  dataColor='white' style="background-color: white; border:1px solid #ccc; "></div>
                             <div class="color-box colorPciker"  dataColor='yellow' style="background-color: yellow;"></div>
-                            
+
                     </div>
 
 
-                    <div class="content pb-5 colorBlock " id="categoryTwo" style="display: none;"> 
+                    <div class="content pb-5 colorBlock " id="categoryTwo" style="display: none;">
                             <div class="color-box colorPciker" dataColor='black' style="background-color:black;"></div>
                             <div class="color-box colorPciker" dataColor='green' style="background-color: green;"></div>
                             <div class="color-box colorPciker"  dataColor='royalblue' style="background-color: royalblue;"></div>
@@ -145,15 +145,15 @@
                             <div class="color-box colorPciker"  dataColor='navy' style="background-color: navy;"></div>
                             <div class="color-box colorPciker"  dataColor='maroon' style="background-color: maroon;"></div>
                             <div class="color-box colorPciker"  dataColor='red' style="background-color: lightgray;"></div>
-                           
+
                     </div>
 
 
                     <div class="content pb-5 colorBlock" id="categoryThree" style="display: none;">
                             <div class="color-box colorPciker" dataColor='black' style="background-color:black;"></div>
                             <div class="color-box colorPciker" dataColor='darkgreen' style="background-color:darkgreen;"></div>
-              
-                           
+
+
                     </div>
 
 
@@ -172,7 +172,7 @@
                             <div class="color-box colorPciker"  dataColor='maroon' style="background-color: maroon;"></div>
                             <div class="color-box colorPciker"  dataColor='white' style="background-color: white; border:1px solid #ccc; "></div>
                             <div class="color-box colorPciker"  dataColor='yellow' style="background-color: yellow;"></div>
-                           
+
                     </div>
 
 
@@ -184,7 +184,7 @@
                             <div class="color-box colorPciker" dataColor='black' style="background-color:black;"></div>
                             <div class="color-box colorPciker" dataColor='darkgreen' style="background-color:darkgreen;"></div>
                             <div class="color-box colorPciker" dataColor='royalblue' style="background-color:royalblue;"></div>
-                           
+
                     </div>
 
 
@@ -193,17 +193,17 @@
                     <div class="content pb-5 colorBlock" id="categorySix" style="display: none;">
                             <div class="color-box colorPciker" dataColor='black' style="background-color:black;"></div>
                             <div class="color-box colorPciker" dataColor='darkgreen' style="background-color:darkgreen;"></div>
-              
-                           
-                          
+
+
+
                     </div>
 
 
                     <div id="colorError" style="display: none;" class="color-errors custom-error"><small class="alert alert-danger d-block">You must select a color.</small></div>
-                    
-                    
+
+
                     </div>
-                   
+
 
                     <!-- grid content box 4 -->
                     <!-- color echanbcement part here -->
@@ -358,7 +358,7 @@
                             <input type="text" class="form-control" name="total_area" id="totalArea" hidden/>
                             <input type="text" class="form-control" name="total_price" id="total_price" hidden/>
                             <input type="text" id="colorInput" name="color" hidden value="hello">
-                            
+
                             </div>
 
                         </div>
@@ -379,7 +379,7 @@
 
 
         $('.inputHeightOrWidth').on('input',function(){
-            
+
             if(!$('#widthInch').val()){
                 $('#widthInch').val(0);
             }
@@ -401,7 +401,7 @@
                 $('#totalArea').val(parseFloat(area).toFixed(2));
                 $('#total_price').val(parseFloat(cost).toFixed(2));
             }
-            
+
 
 
 
@@ -415,7 +415,7 @@
                 $(window).scrollTop($('#colorTitle').offset().top-20)
                 e.preventDefault();
             }
-            
+
         });
         $('.colorPciker').on('click', function(){
             $('#colorError').hide();
@@ -455,9 +455,9 @@
             // $('#colorInput').val() = "hello" ;
         }
 
-        
+
      })
-        
+
 
     });
 
