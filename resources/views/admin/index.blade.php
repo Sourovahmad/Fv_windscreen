@@ -37,9 +37,7 @@
             <nav class="navbar  ">
 
                 <div class="navbar-brand"><span id="componentDetailsTitle">Orders</span> </div>
-                <div id="AddNewFormButtonDiv"><button type="button" class="btn btn-success btn-lg" id="AddNewFormButton"
-                        data-toggle="collapse" data-target="#createNewForm" aria-expanded="false"
-                        aria-controls="collapseExample"><i class="fas fa-plus" id="PlusButton"></i></button></div>
+               
 
 
             </nav>
@@ -86,20 +84,18 @@
 
                     <tbody>
                         <?php $itr = 0; ?>
-                        {{-- @foreach ($super_admins as $admin) --}}
+                         @foreach ($orders as $order) 
 
-                        @php
-                            $itr = $itr + 1;
-                        @endphp
+                      
                         <tr class="data-row">
 
 
 
 
 
-                            <td>{{ $itr }}</td>
-                            <td class="word-break name">name</td>
-                            <td class="word-break email">example@gamil.com</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td class="word-break name">{{ $order->name }}</td>
+                            <td class="word-break email">{{ $order->email }}</td>
                             <td>
 
                                 <table class="table">
@@ -109,12 +105,14 @@
                                         <thead>
                                             <th scope="col">Height</th>
                                             <th scope="col">Width</th>
+                                            <th scope="col">Size</th>
                                         </thead>
 
                                         <tbody>
                                             <tr>
-                                                <td class="word-break height">Mark</td>
-                                                <td class="word-break width">Otto</td>
+                                                <td class="word-break height">{{ $order->size_height }}</td>
+                                                <td class="word-break width">{{ $order->size_width }}</td>
+                                                <td class="word-break width">{{ $order->size }}</td>
                                             </tr>
                                         </tbody>
                                     </tr>
@@ -123,20 +121,25 @@
 
 
                             </td>
-                            <td class="word-break color">Color</td>
-                            <td class="word-break material">Material 2</td>
-                            <td class="word-break position"> Position</td>
-                            <td class="word-break price">200 $</td>
+                            <td class="word-break color">{{ $order->color }}</td>
+                            <td class="word-break material">{{ $order->material }}</td>
+                            <td class="word-break position"> {{ $order->position }}</td>
+                            <td class="word-break price">{{ $order->price }}</td>
                             <td>
-                                <div class="text-center">
-                                    <img src="{{ asset('images/work.png') }}" alt="" style="max-width: 80%"> <br>
 
-                                    <a href="{{ route('download_image', 2) }}">
+                            @if(!empty($order->image))
+                        
+                                <div class="text-center">
+                                    <img src="{{ asset($order->image) }}" alt="" style="max-width: 80%"> <br>
+
+                                    <a href="{{ route('download_image', $order->id) }}">
                                         <span class="text-success"><i class="fas fa-download mt-2 "></i></span>
                                     </a>
 
 
                                 </div>
+
+                                @endif
 
                             </td>
 
@@ -148,7 +151,7 @@
                                     </i></button>
 
 
-                                <form method="POST" action="{{ route('orders.destroy', 1) }}" id="delete-form-1"
+                                <form method="POST" action="{{ route('orders.destroy', $order->id) }}" id="delete-form-{{$order->id}}"
                                     style="display:none; ">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
@@ -158,7 +161,7 @@
 
 
                                 <button title="Delete" class="dataDeleteItemClass btn btn-danger btn-sm" onclick="if(confirm('are you sure to delete this')){
-                    document.getElementById('delete-form-1').submit();
+                    document.getElementById('delete-form-{{$order->id}}').submit();
                    }
                    else{
                     event.preventDefault();
@@ -176,7 +179,7 @@
                         </tr>
 
 
-                        {{-- @endforeach --}}
+                         @endforeach 
 
                     </tbody>
 
@@ -246,8 +249,9 @@
 
                                         <tbody>
                                             <tr class="text-center">
-                                                <td class="modal-output-height" id="modal-output-height">Mark</td>
-                                                <td class="modal-output-width" id="modal-output-width">Otto</td>
+                                                <td class="modal-update-height" id="modal-update-height"></td>
+                                                <td class="modal-update-width" id="modal-update-width"></td>
+                                                <td class="modal-update-size" id="modal-update-size"></td>
                                             </tr>
                                         </tbody>
                                     </tr>
@@ -317,7 +321,7 @@
     <script>
         $(document).ready(function() {
 
-
+            var orders = @json($orders);
             $('#dataTable').DataTable({
                 dom: 'lBfrtip',
                 buttons: [
@@ -348,25 +352,27 @@
 
                 // get the data
                 var itemId = el.data('item-id');
-                var name = row.children(".name").text();
-                var email = row.children(".email").text();
-                var height = row.children(".height").text();
-                var width = row.children(".width").text();
-                var color = row.children(".color").text();
-                var material = row.children(".material").text();
-                var position = row.children(".position").text();
-                var price = row.children(".price").text();
+
+                $.each(orders, function(key){
+                    if (orders[key].id == itemId){
+
+                        console.log(orders[key].size_width)
+                        $("#modal-update-hidden-id").val(itemId);
+                        $("#modal-update-name").val(orders[key].name);
+                        $("#modal-update-email").val(orders[key].email);
+                        $("#modal-update-height").text(orders[key].size_height);
+                        $("#modal-update-width").text(orders[key].size_width);
+                        $("#modal-update-size").text(orders[key].size);
+                        $("#modal-update-color").val(orders[key].color);
+                        $("#modal-update-material").val(orders[key].material);
+                        $("#modal-update-position").val(orders[key].position);
+                        $("#modal-update-price").val(orders[key].price);
 
 
-                $("#modal-update-hidden-id").val(itemId);
-                $("#modal-update-name").val(name);
-                $("#modal-update-email").val(email);
-                $("#modal-update-height").val(height);
-                $("#modal-update-width").val(width);
-                $("#modal-update-color").val(color);
-                $("#modal-update-material").val(material);
-                $("#modal-update-position").val(position);
-                $("#modal-update-price").val(price);
+                    }
+                });
+
+
 
 
             });

@@ -15,7 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $orders = order::all();
+        // return $orders;
+        return view('admin.index',compact('orders'));
     }
 
     /**
@@ -96,6 +98,29 @@ class OrderController extends Controller
 
 
     public function orderStore(Request $request){
-        return $request;
+        $order = new order;
+        $order->name = $request->segment_name;
+        $order->email = $request->email;
+        $order->size_height = $request->height_feet."' ". $request->height_inch . '"' ;
+        $order->size_width = $request->width_feet."' ". $request->width_inch . '"' ;
+        $order->size = $request->size;
+        $order->color = $request->color;
+        $order->material = $request->material;
+        $order->price = $request->total_price;
+        $order->enhancement = $request->enhancement;
+        $order->position = $request->position;
+        $order->notes = $request->segment_note;
+
+        if(!is_null($request->image)){
+
+            $file = $request->image;
+            $fileName = time() . '.full.' . $file->getClientOriginalName();
+            $file->move('images/', $fileName);
+            $image_name = 'images/'.$fileName;
+            $order->image = $image_name;
+        }
+        $order->save();
+        return back()->withSuccess('We have Recived your Request . We will contract you soon');
+
     }
 }
